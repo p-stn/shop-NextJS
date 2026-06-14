@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 
-export default function OtpStep({ onComplete }) {
+
+type OtpStepProps = {
+    onComplete: (code: { code: string }) => void
+}
+
+export default function OtpStep({ onComplete }: OtpStepProps) {
     const [otp, setOtp] = useState('')
-    const getOtp = (e) => {
+    const getOtp = (e: React.FormEvent) => {
         e.preventDefault()
         onComplete({
-            data: otp,
+            code: otp,
         })
     }
 

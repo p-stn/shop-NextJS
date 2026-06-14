@@ -7,7 +7,6 @@ type IdentifierStepProps = {
         value: string
     }) => void
 }
-
 export default function IdentifierStep({ onComplete, }: IdentifierStepProps) {
     const [firstValue, setFirstValue] = useState('')
     const [error, setError] = useState('')
@@ -25,7 +24,7 @@ export default function IdentifierStep({ onComplete, }: IdentifierStepProps) {
         setError('')
 
         onComplete({
-            type: result.type,
+            type: result.type as "email" | "phone",
             value: firstValue,
         })
     }

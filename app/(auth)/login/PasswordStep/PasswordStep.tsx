@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 
-export default function PasswordStep({ onComplete }) {
+type PasswordStepProps = {
+  onComplete: (password: { password: string }) => void
+}
+export default function PasswordStep({ onComplete }: PasswordStepProps) {
   const [password, setPassword] = useState('')
-  const getPassword = (e) => {
+  const getPassword = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     onComplete({
-      data: password,
+      password: password,
     })
   }
 

@@ -6,20 +6,22 @@ import OtpStep from './PasswordStep/OtpStep'
 
 export default function Page() {
   const [step, setStep] = useState('identifier')
-  const [value, setValue] = useState()
+  const [value, setValue] = useState('')
 
-  const handleIdentifierComplete = ({ type, value }) => {
+  const handleIdentifierComplete = ({ type, value }: { type: string; value: string }) => {
     setStep(type)
     setValue(value)
   }
-  const handlePasswordComplete = (password) => {
+  const handlePasswordComplete = ({ password }: { password: string }) => {
+    console.log("password>>", password)
     // passwordService({
     //   email: value,
     //   password
     // })
   }
 
-  const handleOtpComplete = (code) => {
+  const handleOtpComplete = ({ code }: { code: string }) => {
+    console.log("code>>", code)
     // otpService({
     //   phone: value,
     //   code
